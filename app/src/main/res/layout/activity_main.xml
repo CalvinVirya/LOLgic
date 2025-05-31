@@ -44,7 +44,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/afacad_bold"
         android:layout_marginTop="10dp"
-        android:text="kata kata yg seru buat tombol"
+        android:text="tulisan tombol ini diganti ya"
         android:backgroundTint="#7580D5"
         app:cornerRadius="8dp"/>
 
