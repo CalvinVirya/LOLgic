@@ -1,10 +1,389 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomePage"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!--LinearLayout Username-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome, "
+                android:textSize="14sp"
+                android:fontFamily="@font/afacad_medium"/>
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textSize="14sp"
+                android:fontFamily="@font/afacad_bold"/>
+
+        </LinearLayout>
+
+        <!--LinearLayout Progress-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="171dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/progress_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Progress"
+                android:fontFamily="@font/afacad_bold"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvStreak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/afacad_bold"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Current Streak"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/afacad_regular"/>
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/fire"
+                            android:layout_marginLeft="5dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:layout_marginLeft="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp">
+
+                    <TextView
+                        android:id="@+id/tvPoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/afacad_bold"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Points Earned"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/afacad_regular"/>
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/star"
+                            android:layout_marginLeft="5dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--LinearLayout Random Jokes, Useless Facts-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:background="@drawable/random_jokes_bg"
+                android:padding="10dp"
+                android:id="@+id/llRandomJokes">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/random_jokes_icon"
+                    android:layout_gravity="end" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random Jokes"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/afacad_bold"
+                    android:textColor="#BF6F90"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random jokes that might be funny"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/afacad_regular"
+                    android:textColor="#BF6F90"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:background="@drawable/useless_facts_bg"
+                android:padding="10dp"
+                android:id="@+id/llUselessFacts">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/useless_facts_icon"
+                    android:layout_gravity="end" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Useless Facts"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/afacad_bold"
+                    android:textColor="#7D83BF"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weird and random facts"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/afacad_regular"
+                    android:textColor="#7D83BF"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--LinearLayout Cat Facts, Card Againts Humanity-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:background="@drawable/cat_facts_bg"
+                android:padding="10dp"
+                android:id="@+id/llCatFacts">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/cat_facts_icon"
+                    android:layout_gravity="end" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cat Facts"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/afacad_bold"
+                    android:textColor="#809E60"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Interesting facts about cats"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/afacad_regular"
+                    android:textColor="#809E60"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:background="@drawable/card_againts_humanity_bg"
+                android:padding="10dp"
+                android:id="@+id/llCardAgaintsHumanity">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/card_againts_humanity_icon"
+                    android:layout_gravity="end" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Card Againts Humanity"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/afacad_bold"
+                    android:textColor="#509AC2"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi singkat"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/afacad_regular"
+                    android:textColor="#509AC2"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--LinearLayout Today in History, Tambahan-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:background="@drawable/today_in_history_bg"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:id="@+id/llTodayInHistory">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/today_in_history_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/afacad_bold"
+                    android:text="Today in History"
+                    android:textColor="#8C7700"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/afacad_regular"
+                    android:text="See what happened today in the past"
+                    android:textColor="#8C7700"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:background="@drawable/card_againts_humanity_bg"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/card_againts_humanity_icon"
+                    android:layout_gravity="end" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tambahan"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/afacad_bold"
+                    android:textColor="#509AC2"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi singkat"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/afacad_regular"
+                    android:textColor="#509AC2"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="&quot;Nothing is impossible... except trying to sneeze with your eyes open&quot;"
+            android:fontFamily="@font/afacad_medium"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
+</ScrollView>

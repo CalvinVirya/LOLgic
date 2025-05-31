@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="458.74dp"
-        android:background="@drawable/group"
+        android:background="@drawable/intro_bg"
         android:layout_gravity="center"/>
 
     <TextView
@@ -39,6 +39,7 @@
         android:paddingHorizontal="16dp"/>
 
     <Button
+        android:id="@+id/btnUsername"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

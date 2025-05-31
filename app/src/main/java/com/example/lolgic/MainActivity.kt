@@ -1,5 +1,6 @@
 package com.example.lolgic
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -16,11 +17,19 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var btnUsername: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        btnUsername = findViewById(R.id.btnUsername)
+
+        btnUsername.setOnClickListener {
+            var intent = Intent(MainActivity@this, HomePage::class.java)
+            startActivity(intent)
+        }
     }
 
 }
