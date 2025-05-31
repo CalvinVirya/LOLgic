@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#E6E8FD">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="458.74dp"
+        android:background="@drawable/group"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:width="275dp"
+        android:layout_gravity="center"
+        android:text="Boredom just left the chat. Randomness, take the stage!"
+        android:textColor="#7580D5"
+        android:fontFamily="@font/afacad_bold"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:hint="Enter your username"
+        android:fontFamily="@font/afacad_regular"
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
+        android:background="@drawable/primary_edit_text"
+        android:paddingHorizontal="16dp"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/afacad_bold"
+        android:layout_marginTop="10dp"
+        android:text="kata kata yg seru buat tombol"
+        android:backgroundTint="#7580D5"
+        app:cornerRadius="8dp"/>
+
+</LinearLayout>
