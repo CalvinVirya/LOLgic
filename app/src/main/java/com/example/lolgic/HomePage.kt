@@ -1,5 +1,6 @@
 package com.example.lolgic
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -7,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.get
 import org.w3c.dom.Text
 
 class HomePage : AppCompatActivity() {
@@ -14,11 +16,6 @@ class HomePage : AppCompatActivity() {
     lateinit var tvUsername: TextView
     lateinit var tvStreak: TextView
     lateinit var tvPoints: TextView
-    lateinit var llRandomJokes: LinearLayout
-    lateinit var llUselessFacts: LinearLayout
-    lateinit var llCatFacts: LinearLayout
-    lateinit var llCardAgaintsHumanity: LinearLayout
-    lateinit var llTodayInHistory: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +25,24 @@ class HomePage : AppCompatActivity() {
         tvUsername = findViewById(R.id.tvUsername)
         tvStreak = findViewById(R.id.tvStreak)
         tvPoints = findViewById(R.id.tvPoints)
-        llRandomJokes = findViewById(R.id.llRandomJokes)
-        llUselessFacts = findViewById(R.id.llUselessFacts)
-        llCatFacts = findViewById(R.id.llCatFacts)
-        llCardAgaintsHumanity = findViewById(R.id.llCardAgaintsHumanity)
-        llTodayInHistory = findViewById(R.id.llTodayInHistory)
+
+        val views = listOf(
+            findViewById<LinearLayout>(R.id.llRandomJokes),
+            findViewById<LinearLayout>(R.id.llCatFacts),
+            findViewById<LinearLayout>(R.id.llCardAgaintsHumanity),
+            findViewById<LinearLayout>(R.id.llTodayInHistory),
+            findViewById<LinearLayout>(R.id.llUselessFacts),
+        )
+
+        views.forEach { layout ->
+            layout.setOnClickListener {
+                val activityName = (layout.getChildAt(1) as TextView).text.toString()
+
+                val intent = Intent(HomePage@this, ActivityRandom::class.java)
+                intent.putExtra("ActivityName", activityName)
+                startActivity(intent)
+            }
+        }
+
     }
 }
