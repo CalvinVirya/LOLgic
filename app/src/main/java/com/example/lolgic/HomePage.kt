@@ -29,7 +29,7 @@ class HomePage : AppCompatActivity() {
         val views = listOf(
             findViewById<LinearLayout>(R.id.llRandomJokes),
             findViewById<LinearLayout>(R.id.llCatFacts),
-            findViewById<LinearLayout>(R.id.llCardAgaintsHumanity),
+            findViewById<LinearLayout>(R.id.llCardAgainstHumanity),
             findViewById<LinearLayout>(R.id.llTodayInHistory),
             findViewById<LinearLayout>(R.id.llUselessFacts),
         )

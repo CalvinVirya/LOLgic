@@ -270,7 +270,7 @@
                 android:orientation="vertical"
                 android:background="@drawable/card_againts_humanity_bg"
                 android:padding="10dp"
-                android:id="@+id/llCardAgaintsHumanity">
+                android:id="@+id/llCardAgainstHumanity">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -281,7 +281,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Card Againts Humanity"
+                    android:text="Card Against Humanity"
                     android:textSize="16sp"
                     android:fontFamily="@font/afacad_bold"
                     android:textColor="#509AC2"
