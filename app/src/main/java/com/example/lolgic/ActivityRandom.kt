@@ -1,13 +1,19 @@
 package com.example.lolgic
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
@@ -17,6 +23,10 @@ class ActivityRandom : AppCompatActivity() {
 
     lateinit var tvApi: TextView
     lateinit var tvTitle: TextView
+    lateinit var ivBack: ImageView
+    lateinit var llContentBg: LinearLayout
+    lateinit var progressBar: ProgressBar
+    lateinit var scrollView: ScrollView
     private lateinit var requestQueue: RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +36,14 @@ class ActivityRandom : AppCompatActivity() {
 
         tvApi = findViewById(R.id.tvApi)
         tvTitle = findViewById(R.id.tvTitle)
+        ivBack = findViewById(R.id.ivBack)
+        llContentBg = findViewById(R.id.llContentBg)
+        progressBar = findViewById(R.id.progressBar)
+        scrollView = findViewById(R.id.scrollView)
+
+        ivBack.setOnClickListener{
+            finish()
+        }
 
         tvTitle.text = intent.getStringExtra("ActivityName")
 
@@ -35,10 +53,12 @@ class ActivityRandom : AppCompatActivity() {
             url = "https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"
 
             requestQueue = Volley.newRequestQueue(this)
+            progressBar.visibility = View.VISIBLE
 
             var request = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 { response ->
+                    progressBar.visibility = View.GONE
                     tvApi.text = response.getString("text")
                 },
                 { error ->
@@ -47,14 +67,34 @@ class ActivityRandom : AppCompatActivity() {
             )
             requestQueue.add(request)
 
+            val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
+            drawable?.setTint(Color.parseColor("#E6E8FD"))
+            llContentBg.background = drawable
+
+            tvApi.setTextColor(Color.parseColor("#7D83BF"))
+
+            progressBar.indeterminateTintList = ColorStateList.valueOf(Color.parseColor("#7D83BF"))
+
+            scrollView.viewTreeObserver.addOnScrollChangedListener {
+                val view = scrollView.getChildAt(0)
+                val diff = view.bottom - (scrollView.height + scrollView.scrollY)
+
+                if (diff == 0){
+                    requestQueue.add(request)
+                    scrollView.fullScroll(View.FOCUS_UP)
+                }
+            }
+
         } else if(tvTitle.text == "Cat Facts"){
             url = "https://catfact.ninja/fact"
 
             requestQueue = Volley.newRequestQueue(this)
+            progressBar.visibility = View.VISIBLE
 
             var request = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 { response ->
+                    progressBar.visibility = View.GONE
                     tvApi.text = response.getString("fact")
                 },
                 { error ->
@@ -62,6 +102,25 @@ class ActivityRandom : AppCompatActivity() {
                 }
             )
             requestQueue.add(request)
+
+            val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
+            drawable?.setTint(Color.parseColor("#F1FCE5"))
+            llContentBg.background = drawable
+
+            tvApi.setTextColor(Color.parseColor("#809E60"))
+
+            progressBar.indeterminateTintList = ColorStateList.valueOf(Color.parseColor("#809E60"))
+
+            scrollView.viewTreeObserver.addOnScrollChangedListener {
+                val view = scrollView.getChildAt(0)
+                val diff = view.bottom - (scrollView.height + scrollView.scrollY)
+
+                if (diff == 0){
+                    requestQueue.add(request)
+                    scrollView.fullScroll(View.FOCUS_UP)
+                }
+            }
+
         } else if(tvTitle.text == "Card Against Humanity"){
             tvApi.text = "tes"
 
@@ -95,16 +154,25 @@ class ActivityRandom : AppCompatActivity() {
                 { error -> error.printStackTrace() }
             )
 
-
             requestQueue.add(request)
+
+            val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
+            drawable?.setTint(Color.parseColor("#E7F2F8"))
+            llContentBg.background = drawable
+
+            tvApi.setTextColor(Color.parseColor("#509AC2"))
+
         } else if(tvTitle.text == "Random Jokes"){
             url = "https://v2.jokeapi.dev/joke/Any?type=single"
 
             requestQueue = Volley.newRequestQueue(this)
+            progressBar.visibility = View.VISIBLE
+
 
             var request = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 { response ->
+                    progressBar.visibility = View.GONE
                     tvApi.text = response.getString("joke") // kalo mau ambil two part nanti disini ambil variable doang nanti baru di assign
                 },
                 { error ->
@@ -112,14 +180,35 @@ class ActivityRandom : AppCompatActivity() {
                 }
             )
             requestQueue.add(request)
+
+            val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
+            drawable?.setTint(Color.parseColor("#FAE4ED"))
+            llContentBg.background = drawable
+
+            tvApi.setTextColor(Color.parseColor("#BF6F90"))
+
+            progressBar.indeterminateTintList = ColorStateList.valueOf(Color.parseColor("#BF6F90"))
+
+            scrollView.viewTreeObserver.addOnScrollChangedListener {
+                val view = scrollView.getChildAt(0)
+                val diff = view.bottom - (scrollView.height + scrollView.scrollY)
+
+                if (diff == 0){
+                    requestQueue.add(request)
+                    scrollView.fullScroll(View.FOCUS_UP)
+                }
+            }
+
         } else if(tvTitle.text == "Today in History"){
             url = "https://history.muffinlabs.com/date"
 
             requestQueue = Volley.newRequestQueue(this)
+            progressBar.visibility = View.VISIBLE
 
             var request = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 { response ->
+                    progressBar.visibility = View.GONE
                     // Navigate to "data" -> "Events" array
                     val data = response.getJSONObject("data")
                     val events = data.getJSONArray("Events")
@@ -131,7 +220,7 @@ class ActivityRandom : AppCompatActivity() {
                     val year = event.getString("year")
                     val text = event.getString("text")
 
-                    tvApi.text = "Year: ${year}, Event: ${text}"
+                    tvApi.text = "Year: ${year}\nEvent: ${text}"
 
                     // Optional: show in UI (e.g. TextView)
                     // textView.text = "$year: $text"
@@ -141,9 +230,26 @@ class ActivityRandom : AppCompatActivity() {
                 }
             )
             requestQueue.add(request)
-        }
 
-        else {
+            val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
+            drawable?.setTint(Color.parseColor("#FEF7CF"))
+            llContentBg.background = drawable
+
+            tvApi.setTextColor(Color.parseColor("#8C7700"))
+
+            progressBar.indeterminateTintList = ColorStateList.valueOf(Color.parseColor("#8C7700"))
+
+            scrollView.viewTreeObserver.addOnScrollChangedListener {
+                val view = scrollView.getChildAt(0)
+                val diff = view.bottom - (scrollView.height + scrollView.scrollY)
+
+                if (diff == 0){
+                    requestQueue.add(request)
+                    scrollView.fullScroll(View.FOCUS_UP)
+                }
+            }
+
+        } else {
             Toast.makeText(this, "No API available for: ${tvApi.text}", Toast.LENGTH_SHORT).show()
             return
         }

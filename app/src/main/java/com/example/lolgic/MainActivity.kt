@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         btnUsername.setOnClickListener {
             var intent = Intent(MainActivity@this, HomePage::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
