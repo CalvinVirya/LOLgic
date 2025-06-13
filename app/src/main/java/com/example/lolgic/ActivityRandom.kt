@@ -200,6 +200,7 @@ class ActivityRandom : AppCompatActivity() {
             }
 
         } else if(tvTitle.text == "Today in History"){
+
             url = "https://history.muffinlabs.com/date"
 
             requestQueue = Volley.newRequestQueue(this)
