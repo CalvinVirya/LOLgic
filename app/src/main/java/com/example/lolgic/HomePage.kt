@@ -1,6 +1,7 @@
 package com.example.lolgic
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -19,6 +20,8 @@ class HomePage : AppCompatActivity() {
     lateinit var llCardAgainstHumanity: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home_page)

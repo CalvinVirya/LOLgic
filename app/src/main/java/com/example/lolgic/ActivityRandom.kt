@@ -1,5 +1,6 @@
 package com.example.lolgic
 
+import android.content.pm.ActivityInfo
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -30,6 +31,8 @@ class ActivityRandom : AppCompatActivity() {
     private lateinit var requestQueue: RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_random)

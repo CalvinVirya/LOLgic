@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#E6E8FD">
+    android:background="#E6E8FD"
+    android:fitsSystemWindows="true">
 
     <ImageView
         android:layout_width="match_parent"
