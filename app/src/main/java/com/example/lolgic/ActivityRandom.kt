@@ -203,34 +203,7 @@ class ActivityRandom : AppCompatActivity() {
 
             url = "https://history.muffinlabs.com/date"
 
-            requestQueue = Volley.newRequestQueue(this)
-            progressBar.visibility = View.VISIBLE
-
-            var request = JsonObjectRequest(
-                Request.Method.GET, url, null,
-                { response ->
-                    progressBar.visibility = View.GONE
-                    // Navigate to "data" -> "Events" array
-                    val data = response.getJSONObject("data")
-                    val events = data.getJSONArray("Events")
-
-                    // Pick one random event
-                    val randomIndex = (0 until events.length()).random()
-                    val event = events.getJSONObject(randomIndex)
-
-                    val year = event.getString("year")
-                    val text = event.getString("text")
-
-                    tvApi.text = "Year: ${year}\nEvent: ${text}"
-
-                    // Optional: show in UI (e.g. TextView)
-                    // textView.text = "$year: $text"
-                },
-                { error ->
-                    tvApi.text = "API not found"
-                }
-            )
-            requestQueue.add(request)
+            fetchToday(url)
 
             val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
             drawable?.setTint(Color.parseColor("#FEF7CF"))
@@ -245,7 +218,7 @@ class ActivityRandom : AppCompatActivity() {
                 val diff = view.bottom - (scrollView.height + scrollView.scrollY)
 
                 if (diff == 0){
-                    requestQueue.add(request)
+                    fetchToday(url)
                     scrollView.fullScroll(View.FOCUS_UP)
                 }
             }
@@ -255,6 +228,37 @@ class ActivityRandom : AppCompatActivity() {
             return
         }
 
+    }
+
+    fun fetchToday(url: String){
+        requestQueue = Volley.newRequestQueue(this)
+        progressBar.visibility = View.VISIBLE
+
+        var request = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                progressBar.visibility = View.GONE
+                // Navigate to "data" -> "Events" array
+                var data = response.getJSONObject("data")
+                var events = data.getJSONArray("Events")
+
+                // Pick one random event
+                var randomIndex = (0 until events.length()).random()
+                var event = events.getJSONObject(randomIndex)
+
+                var year = event.getString("year")
+                var text = event.getString("text")
+
+                tvApi.text = "Year: ${year}\nEvent: ${text}"
+
+                // Optional: show in UI (e.g. TextView)
+                // textView.text = "$year: $text"
+            },
+            { error ->
+                tvApi.text = "API not found"
+            }
+        )
+        requestQueue.add(request)
     }
 
 }

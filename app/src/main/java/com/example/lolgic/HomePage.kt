@@ -16,6 +16,7 @@ class HomePage : AppCompatActivity() {
     lateinit var tvUsername: TextView
     lateinit var tvStreak: TextView
     lateinit var tvPoints: TextView
+    lateinit var llCardAgainstHumanity: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +26,16 @@ class HomePage : AppCompatActivity() {
         tvUsername = findViewById(R.id.tvUsername)
         tvStreak = findViewById(R.id.tvStreak)
         tvPoints = findViewById(R.id.tvPoints)
+        llCardAgainstHumanity = findViewById(R.id.llCardAgainstHumanity)
+
+        llCardAgainstHumanity.setOnClickListener{
+            var intent = Intent(HomePage@this, CardAgainstHumanity::class.java)
+            startActivity(intent)
+        }
 
         val views = listOf(
             findViewById<LinearLayout>(R.id.llRandomJokes),
             findViewById<LinearLayout>(R.id.llCatFacts),
-            findViewById<LinearLayout>(R.id.llCardAgainstHumanity),
             findViewById<LinearLayout>(R.id.llTodayInHistory),
             findViewById<LinearLayout>(R.id.llUselessFacts),
         )
