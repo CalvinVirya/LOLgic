@@ -44,6 +44,13 @@ class ActivityRandom : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         scrollView = findViewById(R.id.scrollView)
 
+        val screenHeight = resources.displayMetrics.heightPixels
+        val targetHeight = (screenHeight * 0.8).toInt()
+        scrollView.layoutParams.height = targetHeight
+        llContentBg.minimumHeight = targetHeight
+        scrollView.requestLayout()
+        llContentBg.requestLayout()
+
         ivBack.setOnClickListener{
             finish()
         }

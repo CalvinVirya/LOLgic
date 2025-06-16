@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".HomePage"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingHorizontal="20dp">
 
         <!--LinearLayout Username-->
         <LinearLayout
@@ -291,7 +291,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deskripsi singkat"
+                    android:text="Most random confusing questions"
                     android:textSize="14sp"
                     android:fontFamily="@font/afacad_regular"
                     android:textColor="#509AC2"/>
@@ -359,7 +359,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tambahan"
+                    android:text="More Activities"
                     android:textSize="20sp"
                     android:fontFamily="@font/afacad_bold"
                     android:textColor="#509AC2"
@@ -368,7 +368,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deskripsi singkat"
+                    android:text="Coming Soon"
                     android:textSize="14sp"
                     android:fontFamily="@font/afacad_regular"
                     android:textColor="#509AC2"/>

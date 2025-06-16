@@ -47,7 +47,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/afacad_bold"
         android:layout_marginTop="10dp"
-        android:text="tulisan tombol ini diganti ya"
+        android:text="Knock Knock, It's Me!"
         android:backgroundTint="#7580D5"
         app:cornerRadius="8dp"/>
 
