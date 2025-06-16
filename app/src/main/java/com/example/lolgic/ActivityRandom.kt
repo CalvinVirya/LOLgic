@@ -85,6 +85,14 @@ class ActivityRandom : AppCompatActivity() {
                 if (diff == 0){
                     requestQueue.add(request)
                     scrollView.fullScroll(View.FOCUS_UP)
+
+                    val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+                    val currentPoints = sharedPreferences.getInt("userPoints", 0)
+                    val updatedPoints = currentPoints + 1
+
+                    val editor = sharedPreferences.edit()
+                    editor.putInt("userPoints", updatedPoints)
+                    editor.apply()
                 }
             }
 
@@ -121,49 +129,16 @@ class ActivityRandom : AppCompatActivity() {
                 if (diff == 0){
                     requestQueue.add(request)
                     scrollView.fullScroll(View.FOCUS_UP)
+
+                    val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+                    val currentPoints = sharedPreferences.getInt("userPoints", 0)
+                    val updatedPoints = currentPoints + 1
+
+                    val editor = sharedPreferences.edit()
+                    editor.putInt("userPoints", updatedPoints)
+                    editor.apply()
                 }
             }
-
-        } else if(tvTitle.text == "Card Against Humanity"){
-            tvApi.text = "tes"
-
-            requestQueue = Volley.newRequestQueue(this)
-
-            val url = "https://restagainsthumanity.com/api/v1?packs=CAH Base Set"
-
-            val request = JsonObjectRequest(Request.Method.GET, url, null,
-                { response ->
-                    val blackArr = response.getJSONArray("black")
-                    val whiteArr = response.getJSONArray("white")
-
-                    // Random 1 black card
-                    val randomBlack = blackArr.getString((0 until blackArr.length()).random())
-
-                    // Random 5 white cards
-                    val whiteIndexes = mutableSetOf<Int>()
-                    while (whiteIndexes.size < 5) {
-                        whiteIndexes.add((0 until whiteArr.length()).random())
-                    }
-
-                    val whites = whiteIndexes.map { whiteArr.getString(it) }
-
-                    // Display
-                    Log.d("CAH", "Black: $randomBlack")
-                    whites.forEachIndexed { index, card ->
-                        Log.d("CAH", "White ${index + 1}: $card")
-                    }
-
-                },
-                { error -> error.printStackTrace() }
-            )
-
-            requestQueue.add(request)
-
-            val drawable = ContextCompat.getDrawable(this, R.drawable.ll_bg)?.mutate()
-            drawable?.setTint(Color.parseColor("#E7F2F8"))
-            llContentBg.background = drawable
-
-            tvApi.setTextColor(Color.parseColor("#509AC2"))
 
         } else if(tvTitle.text == "Random Jokes"){
             url = "https://v2.jokeapi.dev/joke/Any?type=single"
@@ -199,6 +174,14 @@ class ActivityRandom : AppCompatActivity() {
                 if (diff == 0){
                     requestQueue.add(request)
                     scrollView.fullScroll(View.FOCUS_UP)
+
+                    val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+                    val currentPoints = sharedPreferences.getInt("userPoints", 0)
+                    val updatedPoints = currentPoints + 1
+
+                    val editor = sharedPreferences.edit()
+                    editor.putInt("userPoints", updatedPoints)
+                    editor.apply()
                 }
             }
 
@@ -223,6 +206,14 @@ class ActivityRandom : AppCompatActivity() {
                 if (diff == 0){
                     fetchToday(url)
                     scrollView.fullScroll(View.FOCUS_UP)
+
+                    val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+                    val currentPoints = sharedPreferences.getInt("userPoints", 0)
+                    val updatedPoints = currentPoints + 1
+
+                    val editor = sharedPreferences.edit()
+                    editor.putInt("userPoints", updatedPoints)
+                    editor.apply()
                 }
             }
 

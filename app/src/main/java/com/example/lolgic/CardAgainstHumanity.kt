@@ -60,6 +60,13 @@ class CardAgainstHumanity : AppCompatActivity() {
         views.forEach { view ->
             view.setOnClickListener {
                 fetchCard(views)
+                val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+                val currentPoints = sharedPreferences.getInt("userPoints", 0)
+                val updatedPoints = currentPoints + 1
+
+                val editor = sharedPreferences.edit()
+                editor.putInt("userPoints", updatedPoints)
+                editor.apply()
             }
         }
 

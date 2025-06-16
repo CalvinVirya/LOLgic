@@ -29,6 +29,7 @@
         android:fontFamily="@font/afacad_bold"/>
 
     <EditText
+        android:id="@+id/etUsername"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

@@ -23,7 +23,15 @@ class activity_splash_screen : AppCompatActivity() {
             insets
         }
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this,MainActivity::class.java))
+            val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+            val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
+            if (isLoggedIn) {
+                startActivity(Intent(this, HomePage::class.java))
+            } else {
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+            finish()
         },3000)
     }
 }
